@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+
+/* Near-white sand, dark warm text (contrast >= 6 for all text, WCAG AA is 4.5) */
+:root {
+  --bg: #faf8f4;
+  --card: #ffffff;
+  --line: #e6e1d8;
+  --fg: #1c1a17;
+  --muted: #57514a;
+  --accent: #2e2a25;
+  --accent-fg: #ffffff;
+  --danger: #a3311f;
+  --sunk: #f2efe9;
+}
+
+/* Set on <html> before the first paint (root.tsx) : the system's, or the one chosen in the footer */
+:root[data-theme='dark'] {
+  --bg: #151412;
+  --card: #1e1c19;
+  --line: #33302b;
+  --fg: #f3f0ea;
+  --muted: #b8b1a5;
+  --accent: #ece7de;
+  --accent-fg: #151412;
+  --danger: #f2917f;
+  --sunk: #191816;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-danger: var(--danger);
+  --color-sunk: var(--sunk);
+}
+
+html,
+body {
+  @apply bg-bg text-fg font-sans antialiased;
+}
+
+a {
+  @apply text-fg underline decoration-muted underline-offset-2 hover:decoration-fg;
+}
+
+button {
+  @apply cursor-pointer disabled:cursor-default disabled:opacity-50;
+}

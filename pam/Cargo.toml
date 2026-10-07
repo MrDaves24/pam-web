@@ -1,0 +1,26 @@
+[package]
+name = "pam"
+version = "1.0.0"
+edition = "2024"
+
+[features]
+debug = ["dep:simplelog"]
+
+[dependencies]
+libc = "0.2.175"
+log = "0.4.27"
+pam-sys = "0.5.6"
+reqwest = { version = "0.12.23", default-features = false, features = ["blocking", "rustls-tls", "json", "http2"] }
+syslog = "7.0.0"
+simplelog = { version = "0.12.2", optional = true }
+serde_json = "1"
+base64 = "0.22"
+p256 = { version = "0.13", features = ["pkcs8"] }
+ed25519-dalek = { version = "2", features = ["pkcs8"] }
+sha2 = "0.10"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+strip = true

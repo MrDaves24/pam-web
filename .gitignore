@@ -1,0 +1,5 @@
+target/
+.idea/
+._*
+.DS_Store
+web/pam_web.*
